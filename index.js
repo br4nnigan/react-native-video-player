@@ -127,10 +127,6 @@ export default class VideoPlayer extends Component {
 	componentDidMount() {
 		if (this.props.autoplay) {
 			this.hideControls();
-			// start in FullScreen mode
-			if (this.props.startFullScreen && this.player) {
-				this.player.presentFullscreenPlayer();
-			}
 		}
 	}
 
@@ -196,6 +192,13 @@ export default class VideoPlayer extends Component {
 	onLoad(event) {
 		if (this.props.onLoad) {
 			this.props.onLoad(event);
+		}
+
+
+		// start in FullScreen mode
+		if (this.props.startFullScreen && this.player) {
+
+			this.player.presentFullscreenPlayer();
 		}
 
 		const { duration } = event;
